@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Eksklusif | Fifi Anzelita</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0072ff;
+            --secondary: #00c6ff;
+            --dark: #0f172a;
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --text-main: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: radial-gradient(circle at top right, #e0f2fe, #f8fafc);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .profile-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 30px;
+            border: 6px solid rgba(255,255,255,0.1);
+            transition: 0.5s;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-top: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            color: var(--secondary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+        }
+
+        /* --- Main Layout --- */
+        .container {
+            max-width: 1100px;
+            margin: -50px auto 0;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 30px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            border: 1px solid white;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2::before {
+            content: '';
+            width: 8px;
+            height: 25px;
+            background: var(--primary);
+            border-radius: 10px;
+        }
+
+        /* --- Bento Grid Prestasi --- */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .achieve-card {
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            border: 1px solid #f1f5f9;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achieve-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-color: var(--primary);
+        }
+
+        .achieve-card .icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .achieve-card h3 {
+            font-size: 1rem;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .achieve-card span {
+            font-size: 0.75rem;
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        .badge-year {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #f1f5f9;
+            padding: 4px 10px;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            color: var(--primary);
+        }
+
+        /* --- Status Bar / Skills --- */
+        .skill-item { margin-bottom: 15px; }
+        .skill-info { display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 5px; font-weight: 600; }
+        .bar-bg { background: #e2e8f0; height: 8px; border-radius: 10px; }
+        .bar-fill { background: linear-gradient(to right, var(--primary), var(--secondary)); height: 100%; border-radius: 10px; }
+
+        /* --- Buttons --- */
+        .cta-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .btn-blue { background: var(--primary); color: white; box-shadow: 0 5px 15px rgba(0, 114, 255, 0.3); }
+        .btn-insta { background: #f0f4f8; color: var(--dark); border: 1px solid #cbd5e1; }
+        .btn:hover { opacity: 0.9; transform: translateY(-3px); }
+
+        /* --- Responsive --- */
+        @media (max-width: 900px) {
+            .container { grid-template-columns: 1fr; }
+            .hero { padding: 50px 20px; border-radius: 0; }
+        }
+
+        @media (max-width: 600px) {
+            .achievements-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <div class="profile-wrapper">
+            <img src="FOTO IJAZAH.jpg" alt="Fifi Anzelita" class="profile-img">
+        </div>
+        <h1>Fifi Anzelita</h1>
+        <p>Creative Dancer • Leader • Student</p>
+    </section>
+
+    <div class="container">
+        <div class="left-side">
+            <div class="card">
+                <h2>Biodata</h2>
+                <div style="font-size: 0.9rem; color: #475569;">
+                    <p>📍 <b>Domisili:</b> Gunung Madu, Lampung</p>
+                    <p style="margin: 10px 0;">📧 <b>Email:</b> fifianzelita@gmail.com</p>
+                    <p>📅 <b>Lahir:</b> 19 Mei 2008</p>
+                </div>
+
+                <div style="margin-top: 30px;">
+                    <h2>Keahlian</h2>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Tari Tradisional & Kreasi</span><span>95%</span></div>
+                        <div class="bar-bg"><div class="bar-fill" style="width: 95%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Public Speaking</span><span>85%</span></div>
+                        <div class="bar-bg"><div class="bar-fill" style="width: 85%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Manajemen Organisasi</span><span>90%</span></div>
+                        <div class="bar-bg"><div class="bar-fill" style="width: 90%;"></div></div>
+                    </div>
+                </div>
+
+                <div class="cta-group">
+                    <a href="https://www.instagram.com/ppianzelitaaa_?" target="_blank" class="btn btn-insta">Instagram</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-side">
+            <div class="card" style="margin-bottom: 25px;">
+                <h2>Profil Singkat</h2>
+                <p style="font-size: 0.95rem; color: #475569;">
+                    Saya adalah seorang pelajar yang aktif dan berprestasi di SMA Gunung Madu. Sejak 2018, saya telah mendedikasikan diri pada dunia tari. Selain seni, saya memiliki ketertarikan kuat dalam kepemimpinan, terbukti dengan amanah sebagai <b>Ketua Bidang Humas OSIS</b> selama dua periode berturut-turut.
+                </p>
+            </div>
+
+            <div class="card">
+                <h2>Pencapaian & Prestasi</h2>
+                <div class="achievements-grid">
+                    <div class="achieve-card">
+                        <span class="badge-year">2025</span>
+                        <span class="icon">🥇</span>
+                        <h3>Medali Emas</h3>
+                        <span>Olimpiade PAI Nasional</span>
+                    </div>
+                    <div class="achieve-card">
+                        <span class="badge-year">2025</span>
+                        <span class="icon">🎭</span>
+                        <h3>Juara 3 Baca Puisi</h3>
+                        <span>FLS3N Kab. Lampung Tengah</span>
+                    </div>
+                    <div class="achieve-card">
+                        <span class="badge-year">24/25</span>
+                        <span class="icon">📢</span>
+                        <h3>Ketua Bidang Humas</h3>
+                        <span>OSIS SMA Gunung Madu</span>
+                    </div>
+                    <div class="achieve-card">
+                        <span class="badge-year">2018</span>
+                        <span class="icon">💃</span>
+                        <h3>Juara 2 Tari Kreasi</h3>
+                        <span>FLS2N Kec. Terusan Nunyai</span>
+                    </div>
+                    <div class="achieve-card">
+                        <span class="badge-year">2019</span>
+                        <span class="icon">🏐</span>
+                        <h3>Juara 2 Voli Putri</h3>
+                        <span>HARKOP PT GMP</span>
+                    </div>
+                    <div class="achieve-card">
+                        <span class="badge-year">2019</span>
+                        <span class="icon">✨</span>
+                        <h3>Juara 3 Tari Kreasi</h3>
+                        <span>FLS2N Tingkat Kecamatan</span>
+                    </div>
+                </div>
+
+                <a href="https://drive.google.com/drive/folders/141BvYFy1efQ9QfoAHABFRPbQcHEWZX3f" target="_blank" class="btn btn-blue" style="display: block; margin-top: 25px;">
+                    Lihat Berkas & Sertifikat Selengkapnya
+                </a>
+            </div>
+
+            <div class="card" style="margin-top: 25px;">
+                <h2>Edukasi</h2>
+                <div style="border-left: 2px solid #e2e8f0; padding-left: 20px; margin-left: 10px;">
+                    <div style="margin-bottom: 20px; position: relative;">
+                        <div style="position: absolute; left: -26px; top: 5px; width: 10px; height: 10px; background: var(--primary); border-radius: 50%;"></div>
+                        <b style="font-size: 0.9rem;">SMA Gunung Madu</b><br>
+                        <span style="font-size: 0.8rem; color: #64748b;">2023 - Sekarang</span>
+                    </div>
+                    <div style="margin-bottom: 20px; position: relative;">
+                        <div style="position: absolute; left: -26px; top: 5px; width: 10px; height: 10px; background: #cbd5e1; border-radius: 50%;"></div>
+                        <b style="font-size: 0.9rem;">SMP Satya Dharma Sudjana</b><br>
+                        <span style="font-size: 0.8rem; color: #64748b;">2020 - 2023</span>
+                    </div>
+                    <div style="position: relative;">
+                        <div style="position: absolute; left: -26px; top: 5px; width: 10px; height: 10px; background: #cbd5e1; border-radius: 50%;"></div>
+                        <b style="font-size: 0.9rem;">SDN 04 Gunung Madu</b><br>
+                        <span style="font-size: 0.8rem; color: #64748b;">2014 - 2020</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer style="text-align: center; margin-top: 50px; color: #64748b; font-size: 0.8rem;">
+        &copy; 2026 Fifi Anzelita Portfolio Design.
+    </footer>
+
+</body>
+</html>
